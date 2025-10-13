@@ -42,7 +42,7 @@ venv.bak/
 # Data files (exclude from git - too large)
 *.csv
 data/
-dataset/
+dataset/Images
 !dataset/README.md
 !src/data
 *.pkl
@@ -111,3 +111,4 @@ tmp/
 *.md
 !README.md
 *.txt
+ml-product-price-kp.pem

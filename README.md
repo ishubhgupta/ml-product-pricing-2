@@ -2,7 +2,7 @@
 
 > A complete end-to-end machine learning solution for predicting product prices using multimodal data (text + images) - Built for Amazon ML Hackathon 2025
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-31011/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
@@ -276,15 +276,20 @@ sample_id,price
 
 ### Requirements
 
-- Python 3.8+
+- **Python 3.10** (required for consistency across development and EC2 deployment)
 - 8GB+ RAM (16GB recommended for image features)
 - 5GB+ disk space (for images)
+
+> **Important:** This project requires Python 3.10. If you have Python 3.12 or another version, see [PYTHON_310_SETUP.md](PYTHON_310_SETUP.md) for detailed setup instructions or run `setup_python310.bat`.
 
 ### Install Dependencies
 
 ```bash
-# Create virtual environment (recommended)
-python -m venv venv
+# Create virtual environment with Python 3.10
+py -3.10 -m venv venv
+
+# Or use automated setup script (Windows)
+setup_python310.bat
 
 # Activate
 # Windows:
