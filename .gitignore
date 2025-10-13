@@ -41,6 +41,8 @@ venv.bak/
 
 # Data files (exclude from git - too large)
 *.csv
+!test1.csv
+!train1.csv
 data/
 dataset/Images
 !dataset/README.md
