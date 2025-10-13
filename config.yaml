@@ -1,0 +1,86 @@
+# ML Product Pricing Configuration
+
+# Data paths
+data:
+  train_csv: "dataset/train1.csv"
+  test_csv: "dataset/test1.csv"
+  output_csv: "test_out.csv"
+  train_image_dir: "dataset/images/train"
+  test_image_dir: "dataset/images/test"
+  features_dir: "data/features"
+  
+# Feature engineering
+features:
+  text:
+    tfidf_max_features: 1000
+    tfidf_ngram_range: [1, 2]
+    min_df: 3
+    max_df: 0.8
+  
+  image:
+    model_name: "efficientnet_b0"
+    image_size: [224, 224]
+    batch_size: 32
+    use_cache: true
+  
+  ipq:
+    enable: true
+    log_transform: true
+
+# Model configuration
+models:
+  ridge:
+    alpha: [0.1, 1.0, 10.0, 100.0]
+  
+  random_forest:
+    n_estimators: [100, 200]
+    max_depth: [10, 20, 30]
+    min_samples_split: [2, 5]
+  
+  xgboost:
+    n_estimators: [100, 200]
+    max_depth: [6, 10]
+    learning_rate: [0.01, 0.05, 0.1]
+    subsample: [0.8, 1.0]
+  
+  lightgbm:
+    n_estimators: [100, 200]
+    max_depth: [10, 20]
+    learning_rate: [0.01, 0.05]
+    num_leaves: [31, 63]
+  
+  neural_network:
+    hidden_layers: [512, 256, 128]
+    dropout: 0.3
+    learning_rate: 0.001
+    batch_size: 64
+    epochs: 50
+
+# Training configuration
+training:
+  target_transform: "log"  # log transformation for price
+  cv_folds: 3  # Reduced from 5 to 3 for faster training
+  stratify: true
+  random_state: 42
+  test_size: 0.2
+
+# Optimization
+optimization:
+  method: "optuna"
+  n_trials: 20  # Reduced from 50 to 20 for faster optimization
+  timeout: 600  # 10 minutes per model (reduced from 1 hour)
+  metric: "smape"
+  cv_folds: 3  # Reduced from 5 to 3 for faster CV
+  early_stopping_rounds: 5  # Stop if no improvement for 5 trials
+
+# Ensemble
+ensemble:
+  method: "weighted_average"
+  use_stacking: true
+  meta_model: "ridge"
+
+# Output
+output:
+  save_models: true
+  save_features: true
+  model_dir: "models"

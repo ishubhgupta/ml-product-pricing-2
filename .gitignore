@@ -1,0 +1,113 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data files (exclude from git - too large)
+*.csv
+data/
+dataset/
+!dataset/README.md
+!src/data
+*.pkl
+*.joblib
+
+# Model files (too large for git)
+models/
+*.h5
+*.pth
+*.pt
+
+# Logs
+*.log
+logs/
+
+# Images (too large)
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+
+# System files
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Output files
+test_out.csv
+predictions/
+results/
+
+# Environment variables
+.env
+.env.local
+
+# Cache
+.cache/
+*.cache
+
+# Documentation build
+docs/_build/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Additional
+*.sqlite
+*.db
+backup/
+temp/
+tmp/
+*.md
+!README.md
+*.txt
